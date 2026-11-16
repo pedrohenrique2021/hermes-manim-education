@@ -218,3 +218,23 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+media/
+*.mp4
+frames/
+
+# Vídeos e áudios de resolução (formatos além do mp4)
+*.mov
+*.mkv
+*.webm
+*.wav
+*.mp3
+
+# Arquivos auxiliares ao compilar os enunciados em LaTeX
+*.aux
+*.out
+*.synctex.gz
+
+# Modelos, se um dia fizer fine-tuning
+*.gguf
+*.safetensors
