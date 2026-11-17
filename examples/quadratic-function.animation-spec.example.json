@@ -1,0 +1,163 @@
+{
+  "schema_version": "1.0",
+  "question_id": "example-math-quadratic-001",
+  "scene": {
+    "id": "quadratic-roots",
+    "aspect_ratio": "16:9",
+    "background": null
+  },
+  "style": "mixed",
+  "audio": false,
+  "persistent_context": {
+    "text": "Exemplo didático: determine as raízes de f(x) = x² - 5x + 6.",
+    "visible": true
+  },
+  "steps": [
+    {
+      "step_id": "A1",
+      "title": "Interpretar a raiz",
+      "key_point_ids": [
+        "K1"
+      ],
+      "elements": [
+        {
+          "id": "eq-zero",
+          "type": "math",
+          "content": null,
+          "latex": "f(x)=0",
+          "label": "Raiz: valor de x que zera a função",
+          "coordinates": null,
+          "data": null
+        }
+      ],
+      "actions": [
+        {
+          "action": "write",
+          "target_ids": [
+            "eq-zero"
+          ],
+          "duration_seconds": 1.2,
+          "explanation": "Definir o que significa encontrar uma raiz."
+        }
+      ],
+      "wait_seconds": 2.0
+    },
+    {
+      "step_id": "A2",
+      "title": "Fatorar a expressão",
+      "key_point_ids": [
+        "K2"
+      ],
+      "elements": [
+        {
+          "id": "factor",
+          "type": "math",
+          "content": null,
+          "latex": "x^2-5x+6=(x-2)(x-3)",
+          "label": null,
+          "coordinates": null,
+          "data": null
+        }
+      ],
+      "actions": [
+        {
+          "action": "write",
+          "target_ids": [
+            "factor"
+          ],
+          "duration_seconds": 1.5,
+          "explanation": "Mostrar a fatoração que transforma a equação em produto nulo."
+        }
+      ],
+      "wait_seconds": 2.0
+    },
+    {
+      "step_id": "A3",
+      "title": "Relacionar com o gráfico",
+      "key_point_ids": [
+        "K4"
+      ],
+      "elements": [
+        {
+          "id": "axes",
+          "type": "axes",
+          "content": null,
+          "latex": null,
+          "label": null,
+          "coordinates": null,
+          "data": {
+            "x_range": [
+              -1,
+              6,
+              1
+            ],
+            "y_range": [
+              -2,
+              8,
+              1
+            ]
+          }
+        },
+        {
+          "id": "parabola",
+          "type": "function_graph",
+          "content": "x**2 - 5*x + 6",
+          "latex": null,
+          "label": "f(x)",
+          "coordinates": null,
+          "data": {
+            "x_range": [
+              -0.5,
+              5.5
+            ]
+          }
+        },
+        {
+          "id": "root2",
+          "type": "point",
+          "content": null,
+          "latex": null,
+          "label": "(2, 0)",
+          "coordinates": [
+            2,
+            0
+          ],
+          "data": null
+        },
+        {
+          "id": "root3",
+          "type": "point",
+          "content": null,
+          "latex": null,
+          "label": "(3, 0)",
+          "coordinates": [
+            3,
+            0
+          ],
+          "data": null
+        }
+      ],
+      "actions": [
+        {
+          "action": "create",
+          "target_ids": [
+            "axes",
+            "parabola"
+          ],
+          "duration_seconds": 2.0,
+          "explanation": "Visualizar a parábola."
+        },
+        {
+          "action": "mark",
+          "target_ids": [
+            "root2",
+            "root3"
+          ],
+          "duration_seconds": 1.0,
+          "explanation": "Destacar as interseções com o eixo x."
+        }
+      ],
+      "wait_seconds": 2.0
+    }
+  ]
+}

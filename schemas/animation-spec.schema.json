@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/hermes-manim-education/animation-spec.schema.json",
+  "title": "AnimationSpec",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "question_id",
+    "scene",
+    "style",
+    "audio",
+    "persistent_context",
+    "steps"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "question_id": {
+      "type": "string"
+    },
+    "scene": {
+      "type": "object",
+      "required": [
+        "id",
+        "aspect_ratio"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "aspect_ratio": {
+          "const": "16:9"
+        },
+        "background": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "additionalProperties": false
+    },
+    "style": {
+      "const": "mixed"
+    },
+    "audio": {
+      "const": false
+    },
+    "persistent_context": {
+      "type": "object",
+      "required": [
+        "text",
+        "visible"
+      ],
+      "properties": {
+        "text": {
+          "type": "string"
+        },
+        "visible": {
+          "const": true
+        }
+      },
+      "additionalProperties": false
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "step_id",
+          "title",
+          "key_point_ids",
+          "elements",
+          "actions",
+          "wait_seconds"
+        ],
+        "properties": {
+          "step_id": {
+            "type": "string"
+          },
+          "title": {
+            "type": "string"
+          },
+          "key_point_ids": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "elements": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "id",
+                "type"
+              ],
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "type": {
+                  "enum": [
+                    "text",
+                    "math",
+                    "axes",
+                    "function_graph",
+                    "point",
+                    "line",
+                    "segment",
+                    "vector",
+                    "circle",
+                    "polygon",
+                    "brace",
+                    "table",
+                    "diagram"
+                  ]
+                },
+                "content": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "latex": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "label": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "coordinates": {
+                  "type": [
+                    "array",
+                    "null"
+                  ],
+                  "items": {
+                    "type": "number"
+                  },
+                  "minItems": 2,
+                  "maxItems": 3
+                },
+                "data": {
+                  "type": [
+                    "object",
+                    "null"
+                  ]
+                }
+              }
+            }
+          },
+          "actions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": [
+                "action",
+                "target_ids"
+              ],
+              "properties": {
+                "action": {
+                  "enum": [
+                    "write",
+                    "fade_in",
+                    "fade_out",
+                    "create",
+                    "transform",
+                    "indicate",
+                    "circumscribe",
+                    "move_to",
+                    "plot",
+                    "mark",
+                    "build",
+                    "wait"
+                  ]
+                },
+                "target_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "duration_seconds": {
+                  "type": [
+                    "number",
+                    "null"
+                  ],
+                  "minimum": 0
+                },
+                "explanation": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              }
+            }
+          },
+          "wait_seconds": {
+            "type": "number",
+            "minimum": 0
+          }
+        }
+      }
+    }
+  }
+}

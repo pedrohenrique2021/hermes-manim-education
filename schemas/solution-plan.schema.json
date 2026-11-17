@@ -1,0 +1,149 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://example.org/hermes-manim-education/solution-plan.schema.json",
+  "title": "SolutionPlan",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "question_id",
+    "method",
+    "steps",
+    "computed_answer",
+    "verification",
+    "status"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "question_id": {
+      "type": "string"
+    },
+    "method": {
+      "type": "string"
+    },
+    "steps": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "step_id",
+          "order",
+          "goal",
+          "reasoning",
+          "visual_value"
+        ],
+        "properties": {
+          "step_id": {
+            "type": "string"
+          },
+          "order": {
+            "type": "integer",
+            "minimum": 1
+          },
+          "goal": {
+            "type": "string"
+          },
+          "reasoning": {
+            "type": "string"
+          },
+          "expression_before": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "expression_after": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "formula_or_law": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "substitution": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "units": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          },
+          "result": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "visual_value": {
+            "enum": [
+              "essential",
+              "helpful",
+              "none"
+            ]
+          }
+        }
+      }
+    },
+    "computed_answer": {
+      "type": "string"
+    },
+    "official_answer": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "answer_match": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "verification": {
+      "type": "object",
+      "required": [
+        "method",
+        "status"
+      ],
+      "properties": {
+        "method": {
+          "type": "string"
+        },
+        "status": {
+          "enum": [
+            "passed",
+            "failed",
+            "not_available",
+            "needs_human_review"
+          ]
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "status": {
+      "enum": [
+        "verified",
+        "needs_review",
+        "failed"
+      ]
+    }
+  }
+}
