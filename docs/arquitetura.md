@@ -171,3 +171,8 @@ Cada artefato deve incluir `schema_version`. Alterações incompatíveis exigem 
 - O modelo é responsável por raciocínio e planejamento; o renderer é responsável por executar instruções gráficas seguras.
 - O gabarito não deve ser usado como substituto da resolução.
 - Questões com imagens ilegíveis, enunciado incompleto ou ambiguidade relevante devem ser encaminhadas para revisão.
+
+
+## Estado de implementação
+
+A etapa `Question Analyzer` foi iniciada em `src/hermes_education/question_understanding/`. No runtime escolhido, Hermes Agent fornece a inferência por meio da skill `integrations/hermes/skills/question-understanding/`; o pacote Python extrai e valida o JSON. A validação de schema não substitui revisão de conteúdo.

@@ -41,14 +41,18 @@ A especificação intermediária separa o raciocínio do modelo da implementaç�
 - [`schemas/`](schemas/): schemas JSON para os artefatos intermediários.
 - [`examples/`](examples/): exemplo ilustrativo de ponta a ponta.
 
-## Status
+## Implementação atual
 
-Esta entrega define a especificação documental da v1. Ela **não** implementa ainda o pipeline de ingestão, integração com Hermes Agent, renderer, treinamento ou execução Manim.
+A primeira etapa funcional, **Question Understanding**, está implementada em `src/hermes_education/question_understanding/` e integrada ao Hermes Agent por uma skill em `integrations/hermes/skills/question-understanding/`. O modelo ativo da sessão (Hermes 3, conforme configuração local) gera o artefato; o módulo Python faz parsing e validação determinística contra o schema.
+
+Consulte [`docs/question-understanding-implementation.md`](docs/question-understanding-implementation.md) para instalação e uso.
+
+Esta etapa ainda não resolve a questão, não verifica gabaritos e não gera animações Manim.
 
 ## Próximos marcos
 
-1. Validar os schemas com 5–10 questões reais de Matemática e Física.
-2. Implementar a análise e o plano de solução com saída estruturada.
-3. Implementar o renderer para um conjunto pequeno de componentes Manim.
-4. Criar testes automáticos e revisão humana dos vídeos.
-5. Montar o dataset curado e só então decidir se fine-tuning é necessário.
+1. Executar Question Understanding com 5–10 questões reais de Matemática e Física no Hermes 3 local e revisar os resultados.
+2. Implementar Solution Planning com verificação independente.
+3. Consolidar os pontos-chave didáticos após a resolução.
+4. Implementar o renderer para um conjunto pequeno de componentes Manim.
+5. Criar benchmark curado e só então avaliar necessidade de fine-tuning.

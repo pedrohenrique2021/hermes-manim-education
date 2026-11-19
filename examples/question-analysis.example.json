@@ -1,0 +1,36 @@
+{
+  "schema_version": "1.0",
+  "question_id": "example-math-001",
+  "source": null,
+  "subject": "mathematics",
+  "topic": "Algebra",
+  "subtopic": "Equação do segundo grau",
+  "question_type": "open_ended",
+  "statement": "Determine as raízes de x² - 5x + 6 = 0.",
+  "objective": "Determinar os valores de x que satisfazem a equação.",
+  "given_data": [
+    {
+      "name": "equation",
+      "value": "x² - 5x + 6 = 0",
+      "unit": null,
+      "source_evidence": "Equação explicitamente apresentada no enunciado."
+    }
+  ],
+  "unknowns": [
+    {
+      "name": "x",
+      "description": "Raízes da equação.",
+      "unit": null
+    }
+  ],
+  "constraints_and_assumptions": [],
+  "visual_inputs": [],
+  "key_concepts": [
+    "equação quadrática",
+    "raiz de uma equação"
+  ],
+  "irrelevant_or_contextual_information": [],
+  "ambiguities": [],
+  "confidence": 0.99,
+  "status": "ready_for_solution"
+}
